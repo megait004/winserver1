@@ -217,5 +217,3 @@ Nếu cần đổi tên máy Server, làm như sau:
 2. Khởi động lại máy để cập nhật tên.
 
 ---
-
-Hy vọng hướng dẫn này giúp ích cho các bạn trong việc cài đặt và thực hành với Windows Server! Nếu có thắc mắc nào, đừng ngần ngại hỏi nhé!
