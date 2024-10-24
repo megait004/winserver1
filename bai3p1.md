@@ -1,149 +1,166 @@
-# BÀI 3. CẤU HÌNH CÁC ĐỐI TƯỢNG TRÊN ACTIVE DIRECTORY.
+# BÀI 3: CẤU HÌNH CÁC ĐỐI TƯỢNG TRÊN ACTIVE DIRECTORY
+
 ## YÊU CẦU
-- ở bài này thì các bạn đã có sẵn máy server1 và máy khách đã join domain. như ở bài 2 rồi
-- Bài này các bạn sẽ làm 2 lab nhỏ sau
-    - Tạo và cấu hình tài khoản trên Domain Controller
-    - Tạo OU , Group , User và cấu hình ủy quyền quản trị OU
 
-### Lab 1. Tạo và cấu hình tài khoản trên Domain Controller
-#### **Các bước tạo user**
-- Các bạn vào máy server1 vào **Windows Administrative Tools** chọn **Active Directory Users and Computers**
-![Windows Administrative Tools](./b3p1images/1.png)
-- bấm vào **Active Directory Users and Computers**
+- Trong bài này, bạn đã có sẵn máy `server1` và máy khách đã join domain như ở bài 2.
+- Bài này bao gồm 2 lab nhỏ:
+  - Tạo và cấu hình tài khoản trên Domain Controller.
+  - Tạo OU, Group, User và cấu hình ủy quyền quản trị OU.
 
-![Active Directory Users and Computers](./b3p1images/2.png)
+---
 
-- bấm chọn tên miền của các bạn
-![Tên miền](./b3p1images/3.png)
+### Lab 1: Tạo và Cấu Hình Tài Khoản Trên Domain Controller
 
-- bấm chọn **Users**
+#### **Các Bước Tạo User**
 
-![Users](./b3p1images/4.png)
+1. Truy cập máy `server1`, vào **Windows Administrative Tools** và chọn **Active Directory Users and Computers**.
 
-- nhấn chuột phải chọn **New** -> **User**
+   ![Windows Administrative Tools](./b3p1images/1.png)
 
-![New User](./b3p1images/5.png)
+2. Chọn tên miền của bạn.
 
-- Nhập thông tin user và nhấn **Next**
-**Chú ý :**
-- **First name** : là tên của user
-- **Last name** : là họ của user
-- **User logon name** : là tên đăng nhập của user
+   ![Tên miền](./b3p1images/3.png)
 
-![Nhập thông tin user](./b3p1images/6.png)
+3. Chọn **Users**.
 
-- Nhấn next và nhập password cho user
-**Chú ý :** có các tuỳ chọn sau
-- **User must change password at next logon** : tạo ngay mật khẩu khi đăng nhập lần đầu
-- **User cannot change password** : user không thể thay đổi mật khẩu
-- **Password never expires** : mật khẩu không hết hạn
-- **Password expires** : mật khẩu hết hạn
+   ![Users](./b3p1images/4.png)
 
-![Nhập password cho user](./b3p1images/7.png)
+4. Nhấn chuột phải, chọn **New** -> **User**.
 
-- Nhấn **Next** và **Finish** là đã tạo xong user
+   ![New User](./b3p1images/5.png)
 
-![Finish](./b3p1images/8.png)
+5. Nhập thông tin user và nhấn **Next**.
 
-- Bạn có thể set nhiều thuộc tính cho user bằng cách nhấn chuột phải vào user vừa tạo chọn **Properties** vào phần **Account**
+   **Chú ý:**
+   - **First name**: Tên của user.
+   - **Last name**: Họ của user.
+   - **User logon name**: Tên đăng nhập của user.
 
-![Properties](./b3p1images/9.png)
+   ![Nhập thông tin user](./b3p1images/6.png)
 
-#### **Các bước tạo group và thêm user vào group**
-- Chuột phải rồi các bạn chọn **New** -> **Group** tương tự như user
+6. Nhấn **Next** và nhập mật khẩu cho user.
 
-![New Group](./b3p1images/10.png)
+   **Chú ý:**
+   - **User must change password at next logon**: Tạo ngay mật khẩu khi đăng nhập lần đầu.
+   - **User cannot change password**: User không thể thay đổi mật khẩu.
+   - **Password never expires**: Mật khẩu không hết hạn.
+   - **Password expires**: Mật khẩu hết hạn.
 
-- Các bạn nhập thông tin group  và nhấn **Next**, các thuộc tính các bạn để như ảnh
-**Chú ý :**
-- **Group scope** : phạm vi của group **Global**
-- **Group type** : loại group để là **Security**
+   ![Nhập password cho user](./b3p1images/7.png)
 
-![Nhập thông tin group](./b3p1images/11.png)
+7. Nhấn **Next** và **Finish** để hoàn tất tạo user.
 
-- Tạo xong group rồi các bạn thấy như hình và chọn **Properties** để tiến hành add user vào group
+   ![Finish](./b3p1images/8.png)
 
-![Properties](./b3p1images/12.png)
+8. Để set nhiều thuộc tính cho user, nhấn chuột phải vào user vừa tạo, chọn **Properties** và vào phần **Account**.
 
-- Bấm vào **Members** chọn **Add** nó sẽ hiển thị ra cửa sổ **Select Users, Computers, or Groups**
+   ![Properties](./b3p1images/9.png)
 
-![Select Users, Computers, or Groups](./b3p1images/13.png)
+#### **Các Bước Tạo Group và Thêm User Vào Group**
 
-- Tiếp theo chọn **Advanced** rồi cửa sổ hiển thị ra như hình các bạn chọn **Find Now** để tìm kiếm nhanh
+1. Nhấn chuột phải, chọn **New** -> **Group** tương tự như user.
 
-![Find Now](./b3p1images/14.png)
-- Ở đây các bạn nhấn Ctrl + chuột trái để chọn nhiều user và nhấn **OK** để thêm vào group
+   ![New Group](./b3p1images/10.png)
 
-![OK](./b3p1images/15.png)
+2. Nhập thông tin group và nhấn **Next**. Các thuộc tính để như ảnh.
 
-- Cửa sổ hiện ra nhấn **OK** là đã thêm xong
+   **Chú ý:**
+   - **Group scope**: Phạm vi của group **Global**.
+   - **Group type**: Loại group để là **Security**.
 
-![OK](./b3p1images/16.png)
+   ![Nhập thông tin group](./b3p1images/11.png)
 
-- Các bạn nhấn **Apply** và **OK** để xác nhận là hoàn tất
+3. Sau khi tạo xong group, chọn **Properties** để thêm user vào group.
 
-![Apply](./b3p1images/17.png)
-**Chú ý :**
- - Khi mà các bạn cấu hình các thuộc tính của user thì cấu hình xong các bạn đăng nhập để kiểm tra nhé xem có được chưa mình sẽ nêu các thuộc tính hay dùng
- - **Logon Hours** : giờ đăng nhập của user
- - **Account is disabled** : user bị vô hiệu hóa
- - **Account is locked out** : user bị khóa
- - **User cannot change password** : user không thể thay đổi mật khẩu
- - **User must change password at next logon** : tạo ngay mật khẩu khi đăng nhập lần đầu
- - **Password never expires** : mật khẩu không hết hạn
- - **Password expires** : mật khẩu hết hạn
+   ![Properties](./b3p1images/12.png)
 
-![Login](./b3p1images/18.png)
+4. Chọn **Members**, nhấn **Add** để mở cửa sổ **Select Users, Computers, or Groups**.
 
+   ![Select Users, Computers, or Groups](./b3p1images/13.png)
 
-### Lab 2. Tạo OU , Group , User và cấu hình ủy quyền quản trị OU
-#### **Các bước tạo OU**
-- Các bạn vào máy server1 vào **Windows Administrative Tools** chọn **Active Directory Users and Computers** như ở lab 1
--  Để tạo OU:
-    - Click chuột phải tại tên miền bkaptech.vn, chọn **New** -> **Organizational Unit**
+5. Chọn **Advanced**, sau đó chọn **Find Now** để tìm kiếm nhanh.
 
-![New Organizational Unit](./b3p1images/19.png)
+   ![Find Now](./b3p1images/14.png)
 
-- Nhập tên và nhấn **OK** là đã tạo xong
+6. Nhấn Ctrl + chuột trái để chọn nhiều user và nhấn **OK** để thêm vào group.
 
-![OK](./b3p1images/20.png)
+   ![OK](./b3p1images/15.png)
 
-- Để tạo OU Bên trong OU BAC Giang : thì ta chọn vào OU BAC Giang rồi click chuột phải chọn **New** -> **Organizational Unit**
+7. Nhấn **OK** để hoàn tất.
 
-![New Organizational Unit](./b3p1images/21.png)
- - Còn việc tạo User và Group thì các bạn làm tương tự như ở lab 1 nhé
+   ![OK](./b3p1images/16.png)
 
-#### **Các bước cấu hình ủy quyền quản trị OU**
- - các bạn chọn 1 OU bất kỳ rồi click chuột phải chọn **Delegate Control**
+8. Nhấn **Apply** và **OK** để xác nhận hoàn tất.
 
-![Delegate Control](./b3p1images/22.png)
+   ![Apply](./b3p1images/17.png)
 
-- Các bạn Nhấn **Next**
+**Chú ý:**
+- Khi cấu hình các thuộc tính của user, hãy đăng nhập để kiểm tra xem có được chưa. Các thuộc tính hay dùng:
+  - **Logon Hours**: Giờ đăng nhập của user.
+  - **Account is disabled**: User bị vô hiệu hóa.
+  - **Account is locked out**: User bị khóa.
+  - **User cannot change password**: User không thể thay đổi mật khẩu.
+  - **User must change password at next logon**: Tạo ngay mật khẩu khi đăng nhập lần đầu.
+  - **Password never expires**: Mật khẩu không hết hạn.
+  - **Password expires**: Mật khẩu hết hạn.
 
-![Next](./b3p1images/23.png)
+   ![Login](./b3p1images/18.png)
 
-- Cac bạn nhấn **Add** để chọn user hoặc group có quyền quản trị OU
+---
 
-![Add](./b3p1images/24.png)
+### Lab 2: Tạo OU, Group, User và Cấu Hình Ủy Quyền Quản Trị OU
 
-- Chọn **Advanced** để tìm kiếm nhanh user hoặc group
+#### **Các Bước Tạo OU**
 
-![Advanced](./b3p1images/25.png)
+1. Truy cập máy `server1`, vào **Windows Administrative Tools** và chọn **Active Directory Users and Computers** như ở lab 1.
 
- - Các bạn chọn **Find Now** để tìm kiếm và chọn user hoặc group có quyền quản trị OU và nhấn **OK** nó hiện ra cửa sổ **Select Users, Computers, or Groups** nhấn **OK** là đã thêm xong
+2. Để tạo OU:
+   - Click chuột phải tại tên miền `bkaptech.vn`, chọn **New** -> **Organizational Unit**.
 
-![Find Now](./b3p1images/26.png)
+   ![New Organizational Unit](./b3p1images/19.png)
 
-- Các bạn nhấn **Next**
+3. Nhập tên và nhấn **OK** để hoàn tất.
 
-![Next](./b3p1images/27.png)
+   ![OK](./b3p1images/20.png)
 
-- Chọn các quyền quản trị OU và nhấn **Next**
+4. Để tạo OU bên trong OU BAC Giang, chọn vào OU BAC Giang, click chuột phải, chọn **New** -> **Organizational Unit**.
 
-![Next](./b3p1images/28.png)
+   ![New Organizational Unit](./b3p1images/21.png)
 
-- Các bạn nhấn **Finish** là đã hoàn tất
+5. Việc tạo User và Group thực hiện tương tự như ở lab 1.
 
-![Finish](./b3p1images/29.png)
+#### **Các Bước Cấu Hình Ủy Quyền Quản Trị OU**
 
-- Tiếp theo các bạn vào máy khách đăng nhập tài khoản vừa cấu hình xem có được quyền quản trị OU và tháo tác các chức năng vừa chọn rồi sang máy server1 xem có cập nhật chưa nhé
+1. Chọn một OU bất kỳ, click chuột phải, chọn **Delegate Control**.
+
+   ![Delegate Control](./b3p1images/22.png)
+
+2. Nhấn **Next**.
+
+   ![Next](./b3p1images/23.png)
+
+3. Nhấn **Add** để chọn user hoặc group có quyền quản trị OU.
+
+   ![Add](./b3p1images/24.png)
+
+4. Chọn **Advanced** để tìm kiếm nhanh user hoặc group.
+
+   ![Advanced](./b3p1images/25.png)
+
+5. Chọn **Find Now** để tìm kiếm và chọn user hoặc group có quyền quản trị OU, nhấn **OK** để mở cửa sổ **Select Users, Computers, or Groups**, nhấn **OK** để hoàn tất.
+
+   ![Find Now](./b3p1images/26.png)
+
+6. Nhấn **Next**.
+
+   ![Next](./b3p1images/27.png)
+
+7. Chọn các quyền quản trị OU và nhấn **Next**.
+
+   ![Next](./b3p1images/28.png)
+
+8. Nhấn **Finish** để hoàn tất.
+
+   ![Finish](./b3p1images/29.png)
+
+9. Tiếp theo, vào máy khách, đăng nhập tài khoản vừa cấu hình để kiểm tra quyền quản trị OU và thực hiện các chức năng vừa chọn, sau đó quay lại máy `server1` để xem có cập nhật chưa.
